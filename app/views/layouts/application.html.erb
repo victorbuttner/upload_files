@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Upload Files" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Upload Files" %>">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+  <!--  <header> 
+    </header>-->
+    <main role="main">
+      <div class="row">
+      <div class="container-fluid">
+         <div class="row">
+          <div class="col-sm-12">
+              <div class="col-sm-4" >
+                <div class="row">
+                  <%= image_tag("logo_default.jpeg", class: "img-responsive") %>
+                </div>
+                <div class="row">
+                  <% if user_signed_in? %>
+                 <h2> Bem Vindo, <%= current_user.name %> </h2>
+                 <%end%>
+                </div>
+                <div class="row">
+                  <%= render 'layouts/leftmenu' %>
+                </div>
+              </div>
+              <div class="col-sm-8">
+                <%= render 'layouts/navigation' %>
+
+                <%= render 'layouts/messages' %>
+                <%= yield %>
+
+              </div>
+            </div>
+
+          </div>
+
+
+
+
+      </div>
+      </div>
+
+    </main>
+  </body>
+</html>

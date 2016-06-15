@@ -1,0 +1,22 @@
+
+
+<div class="col-md-4">
+  <ul class="nav nav-pills nav-stacked">
+    <li><a href="#">Mensagem</a></li>
+    <li> <%= link_to('Enviar Arquivos', new_upload_path) %> </li>
+    <% if user_signed_in? %>
+      <li>
+       <%= link_to('Meus dados',   edit_user_registration_path  )%>
+      </li>
+      <li>
+        <%= link_to('Sair', destroy_user_session_path, :method => :delete) %>        
+      </li>
+    <% else %>
+
+      <li>
+       <%= link_to('Login', new_user_session_path)  %>  
+      </li>
+    <% end %>
+  </ul>
+</div>
+
